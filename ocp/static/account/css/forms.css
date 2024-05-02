@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+/*Google Fonts: 'Poppins', sans-serif
+Google Fonts: 'Merriweather sans', sans-serif*/
+
+/*================ VARIABLE CSS =============*/
+:root {
+	--header_height: 3.5rem;
+
+/*	======== COLORS =============*/
+	--primaryColor: hsl(230, 75%, 56%);
+	--titleColor: hsl(230, 75%, 15%);
+	--textColor: hsl(230, 12%, 40%);
+	--bodyColor: hsl(230, 100%, 98%);
+	--containerColor: hsl(230, 100%, 97%);
+	--borderColor: hsl(230, 25%, 80%);
+
+/*	=========== FONT AND TYPOGRAPHY ========*/
+	--titleFont: 'Merriweather Sans', sans-serif;
+	--baseFont: 'Poppins', sans-serif;
+	--h2_fontSize: 1.25rem;
+	--normal_fontSize: .938rem;
+
+/*	================ Font Weight ==========*/
+	--regular: 400;
+	--medium: 500;
+	--semiBold: 600;
+	--bold: 700;
+
+/*	=========== Z-index ============*/
+	--z_fixed: 100;
+	--z_modal: 1000;
+}
+
+/*	=============== Responsive typography ========*/
+@media screen and (min-height: 1023px){
+	:root{
+		--h2_fontSize: 1.5rem;
+		--normal_fontSize: 1rem;
+	}
+}
+
+
+
+/*	================== BASE =================*/
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+body,
+input,
+button {
+	font-family: var(--baseFont);
+	font-size: var(--normal_fontSize);
+}
+
+body {
+	background-color: var(--bodyColor);
+	color: var(--textColor);
+}
+ 
+input,
+button {
+	border: none;
+	outline: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+/*================== LOGIN ==============*/
+
+.login_form{
+	display: grid;
+	background-color: var(--containerColor);
+	padding: 2rem 1.5rem 2.5rem;
+	box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
+	border-radius: 1rem;
+	row-gap: 1.2rem;
+	text-align: center;
+	transform: translateY(-1rem);
+	transition: transform .4s;
+}
+
+.login_title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	
+}
+
+.login_domain {
+	font-size: var(--h2_fontSize);
+	color: var(--titleColor);
+
+}
+
+.logo_image {
+	width: 70px;
+	height: 50px;
+	margin-inline-end: .5rem;
+	border-radius: 2rem;
+}
+
+ 
+form .login_group .field_container{
+	position: relative;
+}
+
+.login_label {
+	display: block;
+	text-align: initial;
+	color: var(--titleColor);
+	font-weight: var(--medium);
+}
+
+.login_input {
+	width: 100%;
+	background-color: hsl(0, 0%, 100%);
+	border: 1px solid var(--borderColor);
+	padding: .6rem 2rem .45rem 2rem;
+	border-radius: .4rem;
+	color: var(--textColor);
+	transition: border .4s, box-shadow .4s;
+}
+
+.login_input:hover{
+	border: 1px solid var(--borderColor);
+	box-shadow: 0 4px 8px hsl(0, 0%, 66%);
+}
+ .login_input:focus {
+	border: 1px solid var(--primaryColor); 
+	
+ }
+
+
+.login_input::placeholder {
+	color: var(--textColor);
+
+
+}
+
+.login_signup {
+	margin-bottom: .5rem;
+
+}
+form .login_group i{
+	position: absolute;
+	top: 50%;
+	font-size: 1.125rem;
+	transform: translateY(-50%);
+}
+form .login_group .field_icon{
+	left: .5rem;
+	pointer-events: none;
+}
+
+form .login_group .eye_icon{
+	right: .6rem;
+	cursor: pointer;
+}
+
+form .login_group .error_text{
+	color: hsl(354, 70%, 54%);
+	margin-top: .2rem;
+	text-align: left;
+	font-size: .8rem;
+}
+
+form .login_group .error{
+	/* display: none; */
+}

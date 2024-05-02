@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<h2 class="text center">Search Results...</h2>
+<hr>
+<div class="container">
+	<div class="row g-3">
+		{% for blog in blog_list %}
+		<div class="col-lg-6">
+          <div class="cardStyle1">
+            <h4 class="mdTitle cs1Title"><a href="{{ blog.get_absolute_url }}">{{ blog.title|truncatewords:5}}</a></h4>
+            <ul class="cardOptionCol">
+              <li>By {{ blog.author }}</li>
+              <li>{{ blog.timestamp|date }}</li>
+            </ul>
+            <p> {{ blog.html_to_text|truncatechars:160}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+
+
+{% endblock content %}

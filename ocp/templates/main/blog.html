@@ -1,0 +1,77 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}Blogs{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================s
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+
+<!-- ================================
+End CSS blocks
+================================= -->
+{% block extends_header %}{% endblock %}
+
+{% block content %}
+
+<!-- ================================
+Start Content
+================================= -->
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-4 g-md-3  align-items-center">
+        <div class="col-md-6">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-md-3">See my blogs</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <form class="form-inline mt-2 mt-md-0" action="{% url 'main:search' %}" method="GET">
+      {% csrf_token %}
+      <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button type="submit" class="btn btn-outline-success">
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<section>
+  <div class="lightBg">
+    <div class="container">
+      <div class="portfolioContentMain">
+        <div class="row g-3">
+          {% for blog_check in blog_checklist %}
+          <div class="col-lg-6">
+            <div class="cardStyle1">
+              <h4 class="mdTitle cs1Title"><a href="{{ blog_check.get_absolute_url }}">{{ blog_check.title|truncatewords:8}}</a></h4>
+              <ul class="cardOptionCol">
+                <li>By {{ blog_check.author }}</li>
+                <li>{{ blog_check.timestamp|date }}</li>
+              </ul>
+              <p> {{ blog_check.html_to_text|truncatechars:160}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================================
+End Content
+================================= -->
+{% endblock %}
+    

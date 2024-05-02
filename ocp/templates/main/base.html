@@ -1,0 +1,60 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="author" content="Kenhaps Solutions Limited">
+    <link rel="canonical" href="{{request.path}}"/>
+    <link rel="home" href="{% url 'main:home' %}"/>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'main/images/icon.jpg' %}">
+    <link rel="apple-touch-icon" type="image/jpg" href="{% static 'main/images/icon.jpg' %}">
+
+     <!-- ============= Linking Remixicons =========== -->
+	  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.7.0/remixicon.css">
+
+    <!-- ================================
+    Start CSS
+    ================================= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7.0.5/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
+    <!-- ================================
+    End CSS
+    ================================= -->
+
+    {% block extra_head %}{% endblock %}
+
+  </head>
+  <body>
+    
+    {% include 'main/partials/messages.html' %}
+
+    {% include 'main/partials/nav.html' %}
+
+    {% block content %}{% endblock %} 
+
+    {% include 'main/partials/footer.html' %}
+    
+
+    <!-- ================================
+    Start Scripts
+    ================================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://unpkg.com/swiper@7.0.5/swiper-bundle.min.js"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+    <!-- ================================
+    End Scripts
+    ================================= -->
+    {% block extends_footer %}{% endblock %}
+  </body>
+</html>
